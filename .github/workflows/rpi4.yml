@@ -1,4 +1,4 @@
-name: Rpi4
+name: Raspberry Pi 4
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 jobs:
 
   build_packages:
-    name: Build Rpi4 packages
+    name: Build Raspberry Pi 4 packages
     runs-on: ubuntu-latest
     env:
       DEVICE: rpi4
@@ -160,7 +160,7 @@ jobs:
 
   generate_slim_firmware:
     needs: build_packages
-    name: Generate Rpi4 slim firmware
+    name: Generate Raspberry Pi 4 slim firmware
     runs-on: ubuntu-latest
     env:
       DEVICE: rpi4
@@ -206,7 +206,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./release/*
-          tag: ${{env.strDate}}
+          tag: rpi4-${{env.strDate}}
           file_glob: true
           overwrite: true
-          release_name: ${{env.strDate}} 编译
+          release_name: Raspberry Pi 4 ${{env.strDate}} 编译
